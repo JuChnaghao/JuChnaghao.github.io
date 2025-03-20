@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Game &amp; Coding</title>
+  
+  <subtitle>随便写写</subtitle>
+  <link href="http://juchnaghao.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://juchnaghao.github.io/"/>
+  <updated>2025-03-20T14:32:33.041Z</updated>
+  <id>http://juchnaghao.github.io/</id>
+  
+  <author>
+    <name>Markus</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ooUnit1</title>
+    <link href="http://juchnaghao.github.io/2025/03/20/ooUnit1/"/>
+    <id>http://juchnaghao.github.io/2025/03/20/ooUnit1/</id>
+    <published>2025-03-20T14:32:33.000Z</published>
+    <updated>2025-03-20T14:32:33.041Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>开篇</title>
+    <link href="http://juchnaghao.github.io/2025/03/20/%E5%BC%80%E7%AF%87/"/>
+    <id>http://juchnaghao.github.io/2025/03/20/%E5%BC%80%E7%AF%87/</id>
+    <published>2025-03-19T16:00:00.000Z</published>
+    <updated>2025-03-20T13:47:32.565Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;哇咔咔&quot;&gt;&lt;a href=&quot;#哇咔咔&quot; class=&quot;headerlink&quot; title=&quot;哇咔咔&quot;&gt;&lt;/a&gt;哇咔咔&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/../images/%E9%94%A6%E9%B2%A4.jpg&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="碎碎念" scheme="http://juchnaghao.github.io/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+    <category term="$^%@#!~" scheme="http://juchnaghao.github.io/tags/"/>
+    
+  </entry>
+  
+</feed>
