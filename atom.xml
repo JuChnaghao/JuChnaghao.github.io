@@ -6,7 +6,7 @@
   <link href="http://juchnaghao.github.io/atom.xml" rel="self"/>
   
   <link href="http://juchnaghao.github.io/"/>
-  <updated>2025-03-21T17:05:44.091Z</updated>
+  <updated>2025-04-19T18:12:45.804Z</updated>
   <id>http://juchnaghao.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ooUnit2</title>
+    <link href="http://juchnaghao.github.io/2025/04/14/ooUnit2/"/>
+    <id>http://juchnaghao.github.io/2025/04/14/ooUnit2/</id>
+    <published>2025-04-13T16:54:27.000Z</published>
+    <updated>2025-04-19T18:12:45.804Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;关于面向对象多线程电梯那些事&quot;&gt;&lt;a href=&quot;#关于面向对象多线程电梯那些事&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="oo" scheme="http://juchnaghao.github.io/categories/oo/"/>
+    
+    
+    <category term="code" scheme="http://juchnaghao.github.io/tags/code/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ooUnit1</title>
     <link href="http://juchnaghao.github.io/2025/03/20/ooUnit1/"/>
     <id>http://juchnaghao.github.io/2025/03/20/ooUnit1/</id>
     <published>2025-03-20T14:32:33.000Z</published>
-    <updated>2025-03-21T17:05:44.091Z</updated>
+    <updated>2025-04-13T16:57:33.729Z</updated>
     
     
       
@@ -34,7 +59,7 @@
     
     
     
-    <category term="面向对象" scheme="http://juchnaghao.github.io/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    <category term="oo" scheme="http://juchnaghao.github.io/categories/oo/"/>
     
     
     <category term="code" scheme="http://juchnaghao.github.io/tags/code/"/>
