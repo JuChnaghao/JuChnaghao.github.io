@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Code, Game">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/web-app-manifest-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/web-app-manifest-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/web-app-manifest-512x512.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/favicon.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Game & Coding" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">复制</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"复制\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">复制</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"复制\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>ooUnit4 | Game & Coding - 随便写写</title>
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Game & Coding</a></h1>
+        <h2 class="subtitle">随便写写</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/background2.jpg" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://JuChnaghao.github.io/2025/06/14/ooUnit4/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Markus">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/selfish1.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Game & Coding">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">ooUnit4</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2025-06-14T01:22:05+08:00">2025-06-14 01:22:05</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/oo/" itemprop="url" rel="index"><span itemprop="name">oo</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="UML及oo总结"><a href="#UML及oo总结" class="headerlink" title="UML及oo总结"></a>UML及oo总结</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>仿佛是昨天，我还在de第一单元多项式的bug，回忆起Unit1的痛苦经历，再看到Unit4满分（难度不一样哈哈哈，不过也确实是成长了），感慨万分，可能是因为oo让我这个学期过于充实了吧，所以感觉是如此的快，要和oo告一段落了。</p>
+<h2 id="UML正向建模与开发"><a href="#UML正向建模与开发" class="headerlink" title="UML正向建模与开发"></a>UML正向建模与开发</h2><p>在本单元，我们实践了先进行UML图的建模再根据UML图来构建自己的代码的过程，三次作业分别让我们画了UML类图、状态图和时序图。</p>
+<p>UML正向建模给我的第一印象是比直接写code要复杂的，究其原因肯定在于我们的项目比较简单，当项目的初始规模非常复杂后，UML的作用就能体现出来了，这个单元前两次作业我耐着性子先画出了UML图再进行代码的编写的，以体会UML的价值所在。提前设计好类并构想好关键类的协作与状态转变，其实相当于把以前写代码时边写边想的过程分离了，这个思想感觉也有些面向对象的感觉哈哈哈。<br>我们在设计的时候只需要保证设计的合理与正确即可，写code的时候也只需要保证代码符合设计并且不出错即可。这样设计与实现分离的想法为复杂工程带来了可能性。写代码时可能会遇见初始设计不合理的地方，这时就要停止code的工作去更改设计，然后再继续进行code的编写。</p>
+<p>UML图在测试时也给我们提供了方向，我们还可以测试code与UML模型之间的统一性。</p>
+<h2 id="架构设计与统一性"><a href="#架构设计与统一性" class="headerlink" title="架构设计与统一性"></a>架构设计与统一性</h2><p>下面是我这单元的UML类图和UML状态图以及对应的代码（时序图画的过于简单就不展示了）</p>
+<p>首先是UML类图：<br><img src="/../images/UML%E7%B1%BB%E5%9B%BE.png" alt="img.png"><br>对应的代码为：</p>
+<figure class="hljs highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">public class Library &#123;<br>    private BookShelf bookShelf = new BookShelf();<br>    private BookShelf hotBookShelf = new BookShelf();<br>    private HashSet&lt;LibraryBookIsbn&gt; toBeHot = new HashSet&lt;&gt;();<br>    private HashSet&lt;Book&gt; bro = new HashSet&lt;&gt;();<br>    private HashMap&lt;String, ReserveOrder&gt; ao = new HashMap&lt;&gt;(); //stuId-order<br>    private ArrayDeque&lt;ReserveOrder&gt; orderDeque = new ArrayDeque&lt;&gt;();<br>    private HashSet&lt;String&gt; hadOrderdIds = new HashSet&lt;&gt;();<br>    private HashMap&lt;String, Book&gt; rr = new HashMap&lt;&gt;(); //stuId-Book<br>    private HashMap&lt;LibraryBookId, Book&gt; books = new HashMap&lt;&gt;();<br>    private HashMap&lt;String, User&gt; users = new HashMap&lt;&gt;(); //stuId-User<br>    private HashMap&lt;LibraryBookId, Pair&lt;LocalDate, String&gt;&gt; borrowedBooks = new HashMap&lt;&gt;();<br>    private LocalDate lastOpen = null;<br>    operations...<br>&#125;<br>public class Book &#123;<br>    private LibraryBookId id;<br>    private LibraryBookState state = LibraryBookState.BOOKSHELF;<br>    private ArrayDeque&lt;LibraryTrace&gt; deque = new ArrayDeque&lt;&gt;();<br>    private int due;<br>    operations...<br>&#125;<br>public class BookShelf &#123;<br>    private HashMap&lt;LibraryBookIsbn, HashMap&lt;LibraryBookId, Book&gt;&gt; bookShelf = new HashMap&lt;&gt;();<br>    operations...<br>&#125;<br>public class User &#123;<br>    private String stuId;<br>    private Book bbook;<br>    private HashMap&lt;LibraryBookIsbn, Book&gt; cbooks;<br>    private int credit;<br>    operations...<br>&#125;<br>public class ReserveOrder &#123;<br>    private String usrId;<br>    private LibraryBookIsbn isbn;<br>    private Book book;<br>    private LocalDate date;<br>    operations...<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>我对这次作业的图书馆系统设计了几个关键的类，首先是Book、Library、User，这三个类是最容易抽象出来的，所承担的任务也是最重的，Library负责接受各种命令，User和Book负责和Library交互。<br>同时为了方便管理Book，我还设计了一个BookShelf类，对外提供简介的拿取和放置接口。<br>为了简洁的实现预约功能，我还抽象了一个Order类负责记录各种预约的信息，方便查询和过期处理。</p>
+<p>然后是UML状态图：<br><img src="/../images/UML%E6%97%B6%E5%BA%8F%E5%9B%BE.png" alt="img.png"></p>
+<p>和对应的代码：</p>
+<figure class="hljs highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">@Trigger(from = &quot;InitState&quot;, to = &quot;BookShelf&quot;)<br>@Trigger(from = &quot;BookShelf&quot;, to = &#123;&quot;User&quot;, &quot;HotBookShelf&quot;, &quot;AppointmentOffice&quot;, &quot;ReadRoom&quot;&#125;)<br>@Trigger(from = &quot;User&quot;, to = &quot;BorrowReturnOffice&quot;)<br>@Trigger(from = &quot;HotBookShelf&quot;, to = &#123;&quot;User&quot;, &quot;BookShelf&quot;, &quot;AppointmentOffice&quot;, &quot;ReadRoom&quot;&#125;)<br>@Trigger(from = &quot;Appointment Office&quot;, to = &quot;BookShelf&quot;)<br>@Trigger(from = &quot;BorrowReturnOffice&quot;, to = &quot;BookShelf&quot;)<br>@Trigger(from = &quot;ReadRoom&quot;, to = &quot;BorrowReturnOffice&quot;)<br>public void move(LocalDate date, LibraryBookState nextState) &#123;<br>    LibraryTrace trace = new LibraryTrace(date, state, nextState);<br>    deque.addLast(trace);<br>    state = nextState;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>我的Book的状态转移很简单，就是一个move，参数有下一个状态，Book内部记录当前状态，改变当前状态时会记录下这次转移，方便下次查询。</p>
+<p>Book的状态其实就是Book处于什么位置，Book可能出现的位置有：BookShelf、User、AO、BRO、RR、HotBookShelf，一一注意即可。</p>
+<p>UML时序图我画的非常简单，就不展示了。</p>
+<h2 id="大模型辅助正向建模体验"><a href="#大模型辅助正向建模体验" class="headerlink" title="大模型辅助正向建模体验"></a>大模型辅助正向建模体验</h2><p>本次作业助教创新性的引导我们使用大模型来帮我们辅助正向建模。</p>
+<p>用好大模型不是把指导书全丢给他就行了，因为大模型对于业务的理解能力非常差，而要用好大模型，我们就做到对指导书的理解，然后让大模型发挥它的长处（补全）</p>
+<p>大模型补全能力是非常强的，我们只需要加以提示和引导就能构建一个不错的模型。在对于指导书的理解的基础上，给出自己模型的框架，比如需要有什么类，类里有什么基础的属性和方法，承担了什么功能，把这些描述好后让大模型去“补全”就能得到初版，这已经为我们节省了很多的工作，同时我们的思路也能得到新的启发。</p>
+<h2 id="四个单元中架构设计思维的演进与四个单元中测试思维的演进"><a href="#四个单元中架构设计思维的演进与四个单元中测试思维的演进" class="headerlink" title="四个单元中架构设计思维的演进与四个单元中测试思维的演进"></a>四个单元中架构设计思维的演进与四个单元中测试思维的演进</h2><h3 id="设计思维"><a href="#设计思维" class="headerlink" title="设计思维"></a>设计思维</h3><p>首先讲讲设计思维的变化<br>由于oopre的作用，我在接触第一单元时没有那么的吃力，但是现在回顾起当时的设计，还是觉得非常丑陋的，也因此吃了设计不好的亏，第一单元错了很多。<br>一开始只知道要设计类，但是并没有太注意类之间的协作，同时为了实现简介干净，还需要理解封装的重要性。到了第四单元，这些已经改善了许多。<br>然后是一开始是想一出是一出，在屎山上不断的打补丁，这也是非常不好的，首先要做好初步的设计，然后每次迭代都要在原有的设计上重新设计再去code。</p>
+<h3 id="测试思维"><a href="#测试思维" class="headerlink" title="测试思维"></a>测试思维</h3><p>java有两种测试方法<br>一种是面向评测机的测试（bushi，另外一种是写单元测试那一套。<br>第一单元我还不知道测试的重要性，过了中测就没管了，果然强测惨不忍睹。<br>后来我学会了搭建评测机，但是自己编写的实在太简单了，又引入了大模型的帮助，来帮我完善评测机的功能。<br>在JML一章，我还领略了单元测试的强大，在设计上针对每一处做好测试，基本能保证最后的功能正确。</p>
+<h2 id="课程收获"><a href="#课程收获" class="headerlink" title="课程收获"></a>课程收获</h2><p>在oo这门课上我最大的收获是抗压能力变强了，学期初在oo上栽了一个大跟头，但也慢慢的调整了过来，没有脱离大部队的脚步。</p>
+<p>然后是我通过oo这门课学会了工业中存在“设计”这门“艺术”，像荣老师所说，至少知其然也浅浅的知其所以然，算是踏上了成为一名合格的程序员的第一步。</p>
+<p>在此感谢oo这一学期的陪伴，感谢老师与助教的工作！也希望自己能成为oo助教，为课程组带了新的东西！</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/code/" rel="tag"><i class="fas fa-tags"></i>code</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2025/05/18/ooUnit3/" rel="next" title="ooUnit3"><i class="fas fa-angle-left"></i><span class="nav-title">ooUnit3</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2025/06/25/os-challenge-shell/" rel="prev" title="os_challenge_shell"><span class="nav-title">os_challenge_shell</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/selfish1.jpg" alt="Markus">
+  
+  <h1 class="author-name">Markus</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">6</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">3</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">2</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#UML%E5%8F%8Aoo%E6%80%BB%E7%BB%93"><span class="toc-text">UML及oo总结</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#UML%E6%AD%A3%E5%90%91%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%BC%80%E5%8F%91"><span class="toc-text">UML正向建模与开发</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%BB%9F%E4%B8%80%E6%80%A7"><span class="toc-text">架构设计与统一性</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%BE%85%E5%8A%A9%E6%AD%A3%E5%90%91%E5%BB%BA%E6%A8%A1%E4%BD%93%E9%AA%8C"><span class="toc-text">大模型辅助正向建模体验</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%9B%9B%E4%B8%AA%E5%8D%95%E5%85%83%E4%B8%AD%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E7%BB%B4%E7%9A%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E5%9B%9B%E4%B8%AA%E5%8D%95%E5%85%83%E4%B8%AD%E6%B5%8B%E8%AF%95%E6%80%9D%E7%BB%B4%E7%9A%84%E6%BC%94%E8%BF%9B"><span class="toc-text">四个单元中架构设计思维的演进与四个单元中测试思维的演进</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%80%9D%E7%BB%B4"><span class="toc-text">设计思维</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E6%B5%8B%E8%AF%95%E6%80%9D%E7%BB%B4"><span class="toc-text">测试思维</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E8%AF%BE%E7%A8%8B%E6%94%B6%E8%8E%B7"><span class="toc-text">课程收获</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Markus</span><span class="year"><i class="far fa-copyright"></i>2024 - 2025</span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

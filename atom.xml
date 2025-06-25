@@ -6,7 +6,7 @@
   <link href="http://juchnaghao.github.io/atom.xml" rel="self"/>
   
   <link href="http://juchnaghao.github.io/"/>
-  <updated>2025-04-19T18:12:45.804Z</updated>
+  <updated>2025-06-25T19:17:02.990Z</updated>
   <id>http://juchnaghao.github.io/</id>
   
   <author>
@@ -15,6 +15,81 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>os_challenge_shell</title>
+    <link href="http://juchnaghao.github.io/2025/06/25/os-challenge-shell/"/>
+    <id>http://juchnaghao.github.io/2025/06/25/os-challenge-shell/</id>
+    <published>2025-06-25T15:45:20.000Z</published>
+    <updated>2025-06-25T19:17:02.990Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;lab6-challenge-shell&quot;&gt;&lt;a href=&quot;#lab6-challenge-shell&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="os" scheme="http://juchnaghao.github.io/categories/os/"/>
+    
+    
+    <category term="code" scheme="http://juchnaghao.github.io/tags/code/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ooUnit4</title>
+    <link href="http://juchnaghao.github.io/2025/06/14/ooUnit4/"/>
+    <id>http://juchnaghao.github.io/2025/06/14/ooUnit4/</id>
+    <published>2025-06-13T17:22:05.000Z</published>
+    <updated>2025-06-13T18:17:40.430Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;UML及oo总结&quot;&gt;&lt;a href=&quot;#UML及oo总结&quot; class=&quot;headerlink&quot; title=&quot;UML及oo总结&quot;&gt;&lt;/a&gt;UML及oo总结&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="oo" scheme="http://juchnaghao.github.io/categories/oo/"/>
+    
+    
+    <category term="code" scheme="http://juchnaghao.github.io/tags/code/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ooUnit3</title>
+    <link href="http://juchnaghao.github.io/2025/05/18/ooUnit3/"/>
+    <id>http://juchnaghao.github.io/2025/05/18/ooUnit3/</id>
+    <published>2025-05-18T14:44:17.000Z</published>
+    <updated>2025-05-18T16:54:46.355Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;JML规格化设计&quot;&gt;&lt;a href=&quot;#JML规格化设计&quot; class=&quot;headerlink&quot; title=&quot;JML规格化设计&quot;&gt;&lt;/a&gt;JML规格化设计&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="oo" scheme="http://juchnaghao.github.io/categories/oo/"/>
+    
+    
+    <category term="code" scheme="http://juchnaghao.github.io/tags/code/"/>
+    
+  </entry>
   
   <entry>
     <title>ooUnit2</title>

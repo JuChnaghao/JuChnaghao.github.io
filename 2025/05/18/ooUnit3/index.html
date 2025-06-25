@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, Code, Game">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/web-app-manifest-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/web-app-manifest-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/web-app-manifest-512x512.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/favicon.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Game & Coding" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">复制</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"复制\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">复制</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"复制\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>ooUnit3 | Game & Coding - 随便写写</title>
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Game & Coding</a></h1>
+        <h2 class="subtitle">随便写写</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/background2.jpg" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://JuChnaghao.github.io/2025/05/18/ooUnit3/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Markus">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/selfish1.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Game & Coding">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">ooUnit3</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2025-05-18T22:44:17+08:00">2025-05-18 22:44:17</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/oo/" itemprop="url" rel="index"><span itemprop="name">oo</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="JML规格化设计"><a href="#JML规格化设计" class="headerlink" title="JML规格化设计"></a>JML规格化设计</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本单元作业是一个助教辛苦，学生幸福的单元，首先感谢助教对于JML的接口规格化设计。</p>
+<h2 id="第三单元测试过程"><a href="#第三单元测试过程" class="headerlink" title="第三单元测试过程"></a>第三单元测试过程</h2><h3 id="对测试的理解"><a href="#对测试的理解" class="headerlink" title="对测试的理解"></a>对测试的理解</h3><ol>
+<li>单元测试，目标：验证最小功能单元（函数、类）是否按预期运行。</li>
+<li>功能测试，目标：验证功能是否符合需求规格。</li>
+<li>集成测试，目标：验证多个模块组合后的协同工作是否正常。</li>
+<li>压力测试，目标：测试系统在高负载、大数据量下是否稳定、性能合理。</li>
+<li>回归测试，目标：确保旧功能在新版本中仍然正确。</li>
+</ol>
+<h3 id="数据构造策略"><a href="#数据构造策略" class="headerlink" title="数据构造策略"></a>数据构造策略</h3><ol>
+<li><p>状态跟踪使用 existing_person_ids、existing_relations 等集合保存已创建实体，确保生成的命令多数为有效命令；避免了生成无效命令浪费测试机会。</p>
+</li>
+<li><p>概率控制 每次生成 ID 时有 80% 以上概率使用已存在的 ID，20% 左右概率生成不存在的 ID，用于测试非法输入处理； 保证测试“有效性 + 鲁棒性”兼备。</p>
+</li>
+<li><p>模块覆盖与比例平衡明确控制三大模块（HW1、HW2、HW3）的命令分布权重；比如HW3权重更高（如 am、aem），适应后期重点测试。</p>
+</li>
+<li><p>边界情况生成比如 ID 范围为 [-100, 100]，年龄范围为 [1, 200]； 使用不同数据长度（如随机生成长度 1~100 的名字）。</p>
+</li>
+<li><p>指令生成路径，按照一定的策略随机的生成指定数量的指令，负责测试程序的不同功能。</p>
+</li>
+</ol>
+<h2 id="大模型辅助"><a href="#大模型辅助" class="headerlink" title="大模型辅助"></a>大模型辅助</h2><h3 id="一、整体策略：从“提问者”到“指挥者”"><a href="#一、整体策略：从“提问者”到“指挥者”" class="headerlink" title="一、整体策略：从“提问者”到“指挥者”"></a>一、整体策略：从“提问者”到“指挥者”</h3><p>大模型的强项是语言理解与上下文记忆，而不是通灵。要发挥其最大效能，关键在于你如何设计任务结构、输入信息与交互节奏。可遵循以下三步法：</p>
+<ul>
+<li><p>目标清晰（What）明确告诉模型你要做什么，如：“我正在开发一个评测机，请帮我生成合理的测试用例生成器。”</p>
+</li>
+<li><p>约束充分（How）提供必要背景与规则：输入格式、限制条件、边界值、接口定义、已有类说明等。</p>
+</li>
+<li><p>拆解合理（Step by step）将复杂任务拆解为子任务，让模型逐步完成（如先写接口草图，再实现核心函数，最后补充状态维护）。</p>
+</li>
+</ul>
+<h3 id="二、不同典型场景下的引导技巧"><a href="#二、不同典型场景下的引导技巧" class="headerlink" title="二、不同典型场景下的引导技巧"></a>二、不同典型场景下的引导技巧</h3><h4 id="场景一：规格化设计（接口与架构）"><a href="#场景一：规格化设计（接口与架构）" class="headerlink" title="场景一：规格化设计（接口与架构）"></a>场景一：规格化设计（接口与架构）</h4><p>目标：设计合理的类、方法、数据结构</p>
+<p>引导技巧：</p>
+<p>明确提出功能要求（如“实现一个支持动态添加好友、标签的社交网络类”）</p>
+<p>说明输入输出格式（如命令格式 ap id name age）</p>
+<p>提供已有组件（如你已有的 Person 类定义）</p>
+<p>可用 prompt 模板示例：</p>
+<figure class="hljs highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">我希望你帮我设计一个 Java 类 `Network`，它支持以下命令：<br>- `ap id name age`：添加用户<br>- `ar id1 id2 val`：建立关系<br>  这个类应该如何设计接口？需要哪些内部数据结构？<br></code></pre></td></tr></table></figure>
+<h4 id="场景二：代码实现（核心算法、状态维护）"><a href="#场景二：代码实现（核心算法、状态维护）" class="headerlink" title="场景二：代码实现（核心算法、状态维护）"></a>场景二：代码实现（核心算法、状态维护）</h4><p>目标：写出能工作的函数&#x2F;类</p>
+<p>引导技巧：</p>
+<p>提供函数签名与预期行为（如“输入为命令列表，输出为处理结果”）</p>
+<p>提供已有代码片段、类定义供调用</p>
+<p>可示例性描述一些关键输入输出</p>
+<p>若模型写的第一版不够精确，可反复对细节提问并要求“逐行解释你的代码”</p>
+<h4 id="场景三：测试与验证"><a href="#场景三：测试与验证" class="headerlink" title="场景三：测试与验证"></a>场景三：测试与验证</h4><p>目标：构造测试用例，验证正确性</p>
+<p>引导技巧：</p>
+<p>给出你期望测试的函数或命令格式（如 “qv id1 id2”）</p>
+<p>明确边界（如“我要测试最大长度字符串输入”）</p>
+<p>命令示例 + 状态约束（如“已存在的 ID 集合是 {1, 2, 3}，请生成合法但边界的 mr 命令”）</p>
+<h4 id="场景四：优化与分析"><a href="#场景四：优化与分析" class="headerlink" title="场景四：优化与分析"></a>场景四：优化与分析</h4><p>目标：让模型分析瓶颈、重构代码或提出设计优化建议</p>
+<p>引导技巧：</p>
+<p>提供当前实现代码 + 描述性能瓶颈</p>
+<p>提出明确优化目标（如“将当前 getValueSum() 从 O(n) 降为 O(1)”）</p>
+<p>要求模型分析时提供理由，不仅是结论</p>
+<h2 id="关键数据结构和算法设计"><a href="#关键数据结构和算法设计" class="headerlink" title="关键数据结构和算法设计"></a>关键数据结构和算法设计</h2><h3 id="hw9"><a href="#hw9" class="headerlink" title="hw9"></a>hw9</h3><p>Person:</p>
+<figure class="hljs highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">public class Person implements PersonInterface &#123;<br>    private String name;<br>    private int age;<br>    private int id;<br>    private HashMap&lt;Integer, PersonInterface&gt; acquaintance;<br>    private HashMap&lt;Integer, PersonValuePair&gt; values;<br>    private HashMap&lt;Integer, TagInterface&gt; tags;<br>    private TreeSet&lt;PersonValuePair&gt; ts = new TreeSet&lt;&gt;();<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>为了方便查询acquaintance，使用了复杂度为O(1)的HashMap来存储Person的好友。</p>
+<p>本次作业中，Person需要注重考虑优化getBestAcquaintance()方法，于是我采用了java自己的treeSet来实现O(logn)维护，O(1)查询，只需要重写Set中元素的compareTo()方法即可线上维护value的顺序。</p>
+<p>Tag:</p>
+<figure class="hljs highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">public class Tag implements TagInterface &#123;<br>    private int id;<br>    private HashMap&lt;Integer, PersonInterface&gt; persons;<br>    private int sum = 0;<br>    private int sum2 = 0;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>本次作业Tag需要注意的点是getAgeMean()和getAgeVar()，本人同样实现了O(1)维护，O(1)查询的方法，只需要维护好value和以及value^2和即可。</p>
+<p>NetWork:</p>
+<figure class="hljs highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">public class Network implements NetworkInterface &#123;<br>    private HashMap&lt;Integer, PersonInterface&gt; persons;<br>    private int triple = 0;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>NetWork的难点主要体现在查询三元环数量以及连通性查询</p>
+<p>关于三元环的查询，我选择维护一个triple变量，在每一次加边和删边操作时进行O(N)的维护，实测效果很好。</p>
+<p>关于连通性查询，我见许多同学使用了并查集这个数据结构，但是本次作业中涉及到了删边操作，但是并查集并不支持删边后的查询，于是只能重建，鉴于实现起来过于复杂，我选择了BFS查询连通性，这一算法在后续接口中也会使用，只能说性价比极高。</p>
+<h3 id="hw10"><a href="#hw10" class="headerlink" title="hw10"></a>hw10</h3><p>新增类OfficialAccount：</p>
+<figure class="hljs highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">public class OfficialAccount implements OfficialAccountInterface &#123;<br>    private int ownerId;<br>    private int id;<br>    private String name;<br>    private HashMap&lt;Integer, PersonInterface&gt; followers;<br>    private HashMap&lt;Integer, PersonInterface&gt; articles;<br>    private HashMap&lt;Integer, PersonValuePair&gt; contributions;<br>    private TreeSet&lt;PersonValuePair&gt; ts;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>这是本次作业新增的类OfficialAccount，主要负责维护公众号的关注者和文章（仅关注ID）以及相应关注者的贡献。</p>
+<p>需要注意的地方只有一个接口getBestContributor()，所以我们选择和上次作业一样的做法，用TreeSet来维护贡献的有序性，然后就可以很快的查询最佳贡献者了。</p>
+<p>Person改动：</p>
+<figure class="hljs highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">public class Person implements PersonInterface &#123;<br>    private TreeMap&lt;Integer, Integer&gt; receivedArticles;<br>    private HashMap&lt;Integer, Integer&gt; articles;<br>    private HashMap&lt;PersonValuePair, TagInterface&gt; otherTags;<br>    private int order = 0;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>我们需要维护Person收到的文章以及他们接受的顺序，由于在这一次作业中不可能出现一个人多次接受同一篇文章，所以我们用Map来存储article。</p>
+<p>但是问题来了，我们怎么维护文章的接受顺序呢？没错，又是TreeMap，我们在Person里维护一个取号机制，来一篇文章取一个号，同时号码减一，然后利用TreeMap能维护Key的顺序的机制，我们就能维护好文章的顺序啦，先进来的文章取得号一定大于后进来的文章。</p>
+<p>我们还注意到我维护了一个otherTags，这其实是为了Network里的一个接口服务的，这里暂不讲解。</p>
+<p>Tag改动：</p>
+<p>Tag新增了一个对于内部Person之间value和的查询，但是这个实现主要是在Network中维护的，所以不在这里讲解了。</p>
+<p>Network改动：</p>
+<p>新增了双元环数量的查询（当一对Perosn互为最好的朋友时就视为一个双元环），这个维护方法和三元环类似，主要是在网络中加边删边时正确更改即可。</p>
+<p>新增了对于TagValueSum的查询，注意到我在Person里维护了Person被归类的Tag，这样就可以在更改关系时查询会涉及到哪些Tag的valueSum，然后一一线上维护即可。</p>
+<p>新增了最短路径的接口，我们采用了BFS的实现，简单高效。</p>
+<h3 id="hw11"><a href="#hw11" class="headerlink" title="hw11"></a>hw11</h3><p>本次作业的改动主要为新增了Message类，Message承担了转发文章（被转发的人会接受），发红包（更改Person的Money值），发表情包的作用，同时会增加转发于被转发者的社交值。</p>
+<p>在时间复杂度上没有什么难点，只需要注意处理机制就行，因为这次作业的JML超长！！！！</p>
+<h2 id="从规格到实现，性能如何保障？"><a href="#从规格到实现，性能如何保障？" class="headerlink" title="从规格到实现，性能如何保障？"></a>从规格到实现，性能如何保障？</h2><p>JML设计者在写规格时想的一定不是具体的实现方法，而是怎么去简单又完美的约束好一个接口的功能与副作用，是站在整体的角度思考问题的，想好了一切可能的行为，分别做好不同的约束处理。</p>
+<p>实现则是在遵守JML约束的前提下，尽可能的提高实现的性能。此时工作人员想的是一个具体的实现方法。</p>
+<h2 id="JUNIT测试"><a href="#JUNIT测试" class="headerlink" title="JUNIT测试"></a>JUNIT测试</h2><h3 id="一、JUnit-测试的本质与作用"><a href="#一、JUnit-测试的本质与作用" class="headerlink" title="一、JUnit 测试的本质与作用"></a>一、JUnit 测试的本质与作用</h3><p>JUnit 是 Java 中最常用的单元测试框架，主要用于：</p>
+<ul>
+<li><p>自动化验证类和方法的行为是否符合预期规格；</p>
+</li>
+<li><p>支持回归测试，及时发现代码修改带来的错误；</p>
+</li>
+<li><p>增强测试覆盖率（代码分支、边界、异常情况）；</p>
+</li>
+<li><p>与规格（如 JML）结合时，充当规格实现一致性的验证器。</p>
+</li>
+</ul>
+<h3 id="二、利用“规格信息”设计-JUnit-测试的思路"><a href="#二、利用“规格信息”设计-JUnit-测试的思路" class="headerlink" title="二、利用“规格信息”设计 JUnit 测试的思路"></a>二、利用“规格信息”设计 JUnit 测试的思路</h3><ol>
+<li>明确每个方法的规格（前置条件、后置条件、不变量）设计测试用例时：依据每条规格构造一个正例 + 至少一个反例。</li>
+<li>将规格翻译为断言（assert）JUnit 提供 assertEquals, assertTrue, assertThrows 等断言方法。</li>
+<li>结合边界值与等价类分析基于规格设计测试数据，覆盖各类输入场景。</li>
+</ol>
+<h3 id="三、JUnit-测试验证规格一致性的效果体现"><a href="#三、JUnit-测试验证规格一致性的效果体现" class="headerlink" title="三、JUnit 测试验证规格一致性的效果体现"></a>三、JUnit 测试验证规格一致性的效果体现</h3><ol>
+<li>捕捉与规格不一致的实现错误如：</li>
+</ol>
+<ul>
+<li><p>规格要求“相同关系不可重复添加”，但实现却允许重复；</p>
+</li>
+<li><p>JML 声明“添加后 size 增加”，但实际调用无变化。</p>
+</li>
+</ul>
+<p>通过 JUnit 断言对比前后状态，可快速识别这些逻辑偏差。</p>
+<ol start="2">
+<li><p>提高可维护性与回归保障一旦方法规格变更，只需更新对应测试：避免因手动测试遗漏导致旧功能失效；结合 CI&#x2F;CD，可以自动在提交时运行测试，保障规格长期一致性。</p>
+</li>
+<li><p>支持规格驱动开发（Test-first &#x2F; TDD）JUnit 测试与规格结合，可倒逼实现更加规范：先写规格 → 写测试用例 → 最后写实现，类似于“契约驱动开发”，提升代码清晰度与可预测性。</p>
+</li>
+</ol>
+<h3 id="四、实际项目中的-JUnit-设计示例"><a href="#四、实际项目中的-JUnit-设计示例" class="headerlink" title="四、实际项目中的 JUnit 设计示例"></a>四、实际项目中的 JUnit 设计示例</h3><p>假设你有如下 JML 规格定义：</p>
+<figure class="hljs highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">/*@ requires id &gt; 0;<br>@ ensures \result != null;<br>@ ensures \result.getId() == id;<br>@*/<br>public Person getPerson(int id);<br></code></pre></td></tr></table></figure>
+<p>可设计如下 JUnit 测试：</p>
+<figure class="hljs highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">@Test<br>public void testGetPersonNormal() &#123;<br>network.addPerson(1, &quot;Alice&quot;, 20);<br>Person p = network.getPerson(1);<br>assertNotNull(p);<br>assertEquals(1, p.getId());<br>&#125;<br><br>@Test<br>public void testGetPersonInvalidId() &#123;<br>assertThrows(IllegalArgumentException.class, () -&gt; network.getPerson(-1));<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="学习体会"><a href="#学习体会" class="headerlink" title="学习体会"></a>学习体会</h2><p>本单元的学习让我真正体会到“规格先行”的重要性。JML 规格不仅仅是对接口行为的约束，更是一种程序设计的思维方式。它迫使我在写代码前先理清楚每一个函数的职责、边界与副作用，从而避免“边写边试、边改边错”的低效流程。</p>
+<p>在实现过程中，面对复杂接口和状态维护时，我深刻认识到：良好的设计是性能和正确性的保障。比如在 Person 类中使用 TreeSet 优化最优好友查询、在 Tag 中用数学方法实现均值与方差的 O(1) 维护、以及在 Network 中用 BFS 替代复杂的连通性维护方案——这些都是在规格指引下不断优化的结果。</p>
+<p>此外，借助大模型的协作能力，我从“提问者”成长为“任务设计者”。我学会了如何清晰地表达意图、分步拆解任务、构建提示模板，并通过反复调试与细节提问来获得更贴合需求的输出。这种交互方式不仅提升了效率，也让我意识到人工智能更像是一个“逻辑助理”，它不会替代你的判断，而是在你的设计之下发挥最大价值。</p>
+<p>最后，JML + JUnit 的组合是一次理论与实践的双重磨砺。它让我意识到代码的正确性从来不是“写完跑一下就行”，而是一种自我约束、一种契约精神。测试不是验收，而是开发的一部分，它推动我不断思考：我的代码，是否真正做到了“言出法随”？</p>
+<p>这个单元虽然挑战很多，但正因为如此，我收获的也更多。感谢助教提供的精细规格，感谢这次设计-实现-测试一体化的宝贵锻炼机会。</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/code/" rel="tag"><i class="fas fa-tags"></i>code</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2025/04/14/ooUnit2/" rel="next" title="ooUnit2"><i class="fas fa-angle-left"></i><span class="nav-title">ooUnit2</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2025/06/14/ooUnit4/" rel="prev" title="ooUnit4"><span class="nav-title">ooUnit4</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/selfish1.jpg" alt="Markus">
+  
+  <h1 class="author-name">Markus</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">6</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">3</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">2</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#JML%E8%A7%84%E6%A0%BC%E5%8C%96%E8%AE%BE%E8%AE%A1"><span class="toc-text">JML规格化设计</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E8%BF%87%E7%A8%8B"><span class="toc-text">第三单元测试过程</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E5%AF%B9%E6%B5%8B%E8%AF%95%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">对测试的理解</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E6%95%B0%E6%8D%AE%E6%9E%84%E9%80%A0%E7%AD%96%E7%95%A5"><span class="toc-text">数据构造策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%BE%85%E5%8A%A9"><span class="toc-text">大模型辅助</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E4%B8%80%E3%80%81%E6%95%B4%E4%BD%93%E7%AD%96%E7%95%A5%EF%BC%9A%E4%BB%8E%E2%80%9C%E6%8F%90%E9%97%AE%E8%80%85%E2%80%9D%E5%88%B0%E2%80%9C%E6%8C%87%E6%8C%A5%E8%80%85%E2%80%9D"><span class="toc-text">一、整体策略：从“提问者”到“指挥者”</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E4%BA%8C%E3%80%81%E4%B8%8D%E5%90%8C%E5%85%B8%E5%9E%8B%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84%E5%BC%95%E5%AF%BC%E6%8A%80%E5%B7%A7"><span class="toc-text">二、不同典型场景下的引导技巧</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E5%9C%BA%E6%99%AF%E4%B8%80%EF%BC%9A%E8%A7%84%E6%A0%BC%E5%8C%96%E8%AE%BE%E8%AE%A1%EF%BC%88%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%9E%B6%E6%9E%84%EF%BC%89"><span class="toc-text">场景一：规格化设计（接口与架构）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E5%9C%BA%E6%99%AF%E4%BA%8C%EF%BC%9A%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%88%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95%E3%80%81%E7%8A%B6%E6%80%81%E7%BB%B4%E6%8A%A4%EF%BC%89"><span class="toc-text">场景二：代码实现（核心算法、状态维护）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E5%9C%BA%E6%99%AF%E4%B8%89%EF%BC%9A%E6%B5%8B%E8%AF%95%E4%B8%8E%E9%AA%8C%E8%AF%81"><span class="toc-text">场景三：测试与验证</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E5%9C%BA%E6%99%AF%E5%9B%9B%EF%BC%9A%E4%BC%98%E5%8C%96%E4%B8%8E%E5%88%86%E6%9E%90"><span class="toc-text">场景四：优化与分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%85%B3%E9%94%AE%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1"><span class="toc-text">关键数据结构和算法设计</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#hw9"><span class="toc-text">hw9</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#hw10"><span class="toc-text">hw10</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#hw11"><span class="toc-text">hw11</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E4%BB%8E%E8%A7%84%E6%A0%BC%E5%88%B0%E5%AE%9E%E7%8E%B0%EF%BC%8C%E6%80%A7%E8%83%BD%E5%A6%82%E4%BD%95%E4%BF%9D%E9%9A%9C%EF%BC%9F"><span class="toc-text">从规格到实现，性能如何保障？</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#JUNIT%E6%B5%8B%E8%AF%95"><span class="toc-text">JUNIT测试</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E4%B8%80%E3%80%81JUnit-%E6%B5%8B%E8%AF%95%E7%9A%84%E6%9C%AC%E8%B4%A8%E4%B8%8E%E4%BD%9C%E7%94%A8"><span class="toc-text">一、JUnit 测试的本质与作用</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E4%BA%8C%E3%80%81%E5%88%A9%E7%94%A8%E2%80%9C%E8%A7%84%E6%A0%BC%E4%BF%A1%E6%81%AF%E2%80%9D%E8%AE%BE%E8%AE%A1-JUnit-%E6%B5%8B%E8%AF%95%E7%9A%84%E6%80%9D%E8%B7%AF"><span class="toc-text">二、利用“规格信息”设计 JUnit 测试的思路</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E4%B8%89%E3%80%81JUnit-%E6%B5%8B%E8%AF%95%E9%AA%8C%E8%AF%81%E8%A7%84%E6%A0%BC%E4%B8%80%E8%87%B4%E6%80%A7%E7%9A%84%E6%95%88%E6%9E%9C%E4%BD%93%E7%8E%B0"><span class="toc-text">三、JUnit 测试验证规格一致性的效果体现</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84-JUnit-%E8%AE%BE%E8%AE%A1%E7%A4%BA%E4%BE%8B"><span class="toc-text">四、实际项目中的 JUnit 设计示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%AD%A6%E4%B9%A0%E4%BD%93%E4%BC%9A"><span class="toc-text">学习体会</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Markus</span><span class="year"><i class="far fa-copyright"></i>2024 - 2025</span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
